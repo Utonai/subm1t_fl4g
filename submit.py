@@ -32,7 +32,7 @@ def curl_submit(submit_address, submit_token, success_request, failed_request, m
 
         # curl -s slient -k no vertify -X POST -d data
         curl_order = f"curl -s -k -X POST {submit_address} -d 'token={submit_token}&flag={flag}'"
-        response = subprocess.check_output(curl_order, shell=True)
+        response = subprocess.check_output(curl_order, shell=True).decode()
 
         if success_request in response:
             message['submit_status'] = "submit success"

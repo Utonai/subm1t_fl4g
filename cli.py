@@ -11,8 +11,8 @@ def main():
             flag_list.append(line)
         for flag in flag_list:
             result = submit.main(con.submit, {'flag': flag})
-            if "submit failed" in result["submit_status"]:
-                print(f"invalid flag:{flag}")
+            if "submit success" not in result["submit_status"]:
+                print(flag,"-",result["submit_status"])
             time.sleep(con.submit_wait)
 
 

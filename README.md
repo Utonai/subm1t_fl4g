@@ -22,8 +22,8 @@
 3. 修改`submit.py`中的请求头信息（用于提交flag时
 4. 按需运行以下程序：
     * `auto_atk.py` 自动攻击并提交flag（循环运行
-    * `read_file.py` 在文件中读取并提交flag（单次运行，无日志
-    * `cli.py` 命令行界面提交flag（按两次回车提交，提交失败时会有回显
+    * `read_file.py` 在文件中读取并提交flag（单次运行，失败的flag会回显
+    * `cli.py` 命令行界面提交flag（按两次回车提交，失败的flag会有回显
 
 
 ## 文件调用
