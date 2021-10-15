@@ -57,8 +57,6 @@ def main(submit, message):
 if __name__ == '__main__':
     import resolve_config
     con = resolve_config.main()
-    ip = sys.argv[1]
-    flag = sys.argv[2]
-    con.submit.submit_address = ip
-    message = {'getflag_status': "getflag success", 'flag': flag}
+    flag = sys.argv[1]
+    message = {'flag': flag}
     print(main(con.submit, message))

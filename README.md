@@ -3,7 +3,7 @@
 
 ## 依赖
 
-* python3.6
+* python3.6及以上
 
 * requests
 
@@ -19,8 +19,11 @@
 
 1. 配置`config.conf`
 2. 修改`attack.py`
-3. 修改`submit.py`中的请求头信息
-4. 运行`loopp.py`
+3. 修改`submit.py`中的请求头信息（用于提交flag时
+4. 按需运行以下程序：
+    * `auto_atk.py` 自动攻击并提交flag（循环运行
+    * `read_file.py` 在文件中读取并提交flag（单次运行，无日志
+    * `cli.py` 命令行界面提交flag（按两次回车提交，提交失败时会有回显
 
 
 ## 文件调用
@@ -28,16 +31,19 @@
 |:---   |:---   |
 |config.conf    |配置文件|
 |resolve_config.py  |解析config|
-|attack.py    |获取flag|
+|attack.py    |攻击获取flag|
 |submit.py  |提交flag|
 |log.py |生成日志|
-|loopp.py   |主要运行文件|
-
+|auto_atk.py   |主要运行文件|
+|read_file.py   |主要运行文件|
+|cli.py   |主要运行文件|
 
 
 ## config.conf 详解
 
-* `ip_list_file` 保存所有目标IP的文件，其中每行保存一个IP
+* `ip_list_file` 保存所有攻击目标IP的文件，其中每行保存一个IP
+
+* `flag_list_file` 保存待提交flag的文件，其中每行保存一个flag
 
 * `submit_method` 提交方式，可以通过curl或requests来进行提交
   
@@ -53,7 +59,7 @@
 
 * `rounds` 比赛总轮次（可以不配置，无影响）
 
-* `submit_wait` 每次提交flag之间的停顿间隔（秒），部分平台会设有提交间隔，没有就写0
+* `submit_wait` 每次提交flag之间的停顿间隔（秒），部分平台设有提交间隔时配置
 
 
 
@@ -62,7 +68,7 @@
 
 当需要单次运行或进行单次测试时，可以对各个模块独立进行单次测试：
 * `attack.py` : `python attack.py 192.168.1.101` （测试是否能够拿到flag）
-* `submit.py` : `python submit.py 192.168.1.101 flag{114514}` （测试提交flag是否成功）
+* `submit.py` : `python submit.py  flag{114514}` （测试提交flag是否成功）
 
 
 
@@ -71,5 +77,5 @@
 ## 备注
 
 * 亟待质检
-* round_time处可能有时延越来越大的问题，暂时咕咕（
-* `success.log`是获取flag成功的记录，可能会有提交失败的记录
+* 文件读取flag暂未实现增量式读取
+* `success.log`是获取flag成功的记录，其中可能会包括提交失败的记录 ~~（草~~

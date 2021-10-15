@@ -19,6 +19,7 @@ def main():
 
     ip_list_file = config.get("config", "ip_list_file")
     con.ip_list = open(ip_list_file, "r").read().splitlines()
+    con.flag_list_file = config.get("config", "flag_list_file")
 
     con.submit.submit_method = config.get("config", "submit_method")
     con.submit.submit_address = config.get("config", "submit_address")
