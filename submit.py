@@ -8,9 +8,16 @@ def requests_submit(submit_address, submit_token, success_request, failed_reques
     try:
         flag = message['flag']
 
-        formdata = {"token": submit_token, "flag": flag, }
-        headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"}
-        cookies = {"cookie_name": "cookie_value", }
+        formdata = {
+                    "token": submit_token, 
+                    "flag": flag, 
+                    }
+        headers = {
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"
+                    }
+        cookies = {
+                    "cookie_name": "cookie_value", 
+                    }
         response = requests.post(submit_address, data=formdata, headers=headers, cookies=cookies, verify=False, timeout=3)
         # print(response.text)
 
