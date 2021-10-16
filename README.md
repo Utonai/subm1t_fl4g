@@ -22,8 +22,8 @@
 3. 修改`submit.py`中的请求头信息（用于提交flag时
 4. 按需运行以下程序：
     * `auto_atk.py` 自动攻击并提交flag（循环运行
-    * `read_file.py` 在文件中读取并提交flag（单次运行，失败的flag会回显
-    * `cli.py` 命令行界面提交flag（按两次回车提交，失败的flag会有回显
+    * `read_file.py` 在文件中读取并提交flag（单次运行
+    * `cli.py` 命令行界面提交flag（按两次回车提交
 
 
 ## 文件调用
@@ -44,6 +44,8 @@
 * `ip_list_file` 保存所有攻击目标IP的文件，其中每行保存一个IP
 
 * `flag_list_file` 保存待提交flag的文件，其中每行保存一个flag
+
+* `log_file` 运行`read_file.py`产生日志的保存路径，**警告：再次运行`read_file.py`时会覆盖原日志**
 
 * `submit_method` 提交方式，可以通过curl或requests来进行提交
   
