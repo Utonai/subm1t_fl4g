@@ -26,7 +26,7 @@ def requests_submit(submit_address, submit_token, success_request, failed_reques
         elif failed_request in response.text:
             message['submit_status'] = "submit failed"
         else:
-            message['submit_status'] = "submit other reasons"
+            message['submit_status'] = "submit other reasons: " + response.text
         return message
     except Exception as e:
         message['submit_status'] = "submit failed:" + str(e)
@@ -46,7 +46,7 @@ def curl_submit(submit_address, submit_token, success_request, failed_request, m
         elif failed_request in response:
             message['submit_status'] = "submit failed"
         else:
-            message['submit_status'] = "submit other reasons"
+            message['submit_status'] = "submit other reasons: " + response
         return message
     except Exception as e:
         message['submit_status'] = "submit failed:" + str(e)
