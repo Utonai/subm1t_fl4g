@@ -22,14 +22,14 @@ def requests_submit(submit_address, submit_token, success_request, failed_reques
         # print(response.text)
 
         if success_request in response.text:
-            message['submit_status'] = "submit success"
+            message['submit_status'] = "Success"
         elif failed_request in response.text:
-            message['submit_status'] = "submit failed"
+            message['submit_status'] = "Failed"
         else:
-            message['submit_status'] = "submit other reasons: " + response.text
+            message['submit_status'] = "Other reasons: " + response.text
         return message
     except Exception as e:
-        message['submit_status'] = "submit failed:" + str(e)
+        message['submit_status'] = "Failed: " + str(e)
         return message
 
 
@@ -42,14 +42,14 @@ def curl_submit(submit_address, submit_token, success_request, failed_request, m
         response = subprocess.check_output(curl_order, shell=True).decode()
 
         if success_request in response:
-            message['submit_status'] = "submit success"
+            message['submit_status'] = "Success"
         elif failed_request in response:
-            message['submit_status'] = "submit failed"
+            message['submit_status'] = "Failed"
         else:
-            message['submit_status'] = "submit other reasons: " + response
+            message['submit_status'] = "Other reasons: " + response
         return message
     except Exception as e:
-        message['submit_status'] = "submit failed:" + str(e)
+        message['submit_status'] = "Failed: " + str(e)
         return message
 
 
