@@ -45,7 +45,7 @@
 
 * `flag_list_file` 保存待提交flag的文件，其中每行保存一个flag
 
-* `log_file` 运行`read_file.py`产生日志的保存路径，**警告：再次运行`read_file.py`时会覆盖原日志**
+* `log_file` 运行`read_file.py`产生日志的保存路径
 
 * `submit_method` 提交方式，可以通过curl或requests来进行提交
   

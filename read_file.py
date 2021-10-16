@@ -5,7 +5,7 @@ import resolve_config
 
 def write_log(log_file, flag, submit_status):
     localtime = time.asctime(time.localtime(time.time()))
-    with open(log_file, "w+") as fp:
+    with open(log_file, "a+") as fp:
         fp.write(localtime + "\t" + flag + "\t" + submit_status + "\n")
 
 
